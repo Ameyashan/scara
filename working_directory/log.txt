@@ -50,3 +50,4 @@
 9/Feb/2016 20:44:10 --> dynamixel--> cant connect
 9/Feb/2016 21:25:22 --> dynamixel--> cant connect
 9/Feb/2016 21:26:31 --> dynamixel--> cant connect
+16/Feb/2016 15:38:12 --> dynamixel--> cant connect
