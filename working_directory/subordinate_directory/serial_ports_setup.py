@@ -57,7 +57,7 @@ def get_connected_serial_ports() :
         if len(serial_ports_list) != 2 :
             print("Connect Exactly two serial devices")
             # CHANGE -- Let GUI print this in a msg box
-        dynamixel_port = 'com4'
+        dynamixel_port = 'com8'
         arduino1_port = 'com3'      # CHANGE
         arduino2_port = 'com5'
     #for others

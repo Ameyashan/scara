@@ -1,5 +1,5 @@
 from main_directory import lookup
-from main_directory import arduino1
+# from main_directory import arduino1
 from main_directory import dynamixel
 
 import time
