@@ -1,7 +1,7 @@
 #include<Servo.h>
 
 //-------------- SERVO CALIBRATED POSITIONS ------------------ 
-float gripper_servo_grab_angle=20;
+float gripper_servo_grab_angle=10;
 float gripper_servo_release_angle=100;
 int vertical_servo_down_angle = 80;
 int vertical_servo_up_angle = 140;
