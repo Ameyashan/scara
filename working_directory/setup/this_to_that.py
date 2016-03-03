@@ -57,7 +57,7 @@ def calculate_entire_block_position_list(alpha,beta,s) :
 				beta_2 = beta_1
 
 			eta = calculate_eta(a,d,theta)
-			s2 = (180 - (s + 2*eta))%45 # CHANGE
+			s2 = (s1 + 2*eta)%45 # CHANGE
 
 		if(beta > 0): 
 			beta_2 = beta
@@ -75,7 +75,7 @@ def calculate_entire_block_position_list(alpha,beta,s) :
 				beta_1 = beta_2
 			
 			eta = calculate_eta(a,d,theta)
-			s1 = (180 - (s + 2*eta))%90 # CHANGE
+			s1 = (s2 - 2*eta)%90 # CHANGE
 
 		return [alpha_1,beta_1,alpha_2,beta_2,s1,s2,1]
 
