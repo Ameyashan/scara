@@ -119,9 +119,11 @@ def get_connected_arduino_ports(arduino1_flag,arduino2_flag) :
             MOVE_OUT_OF_RESET_COMMAND = 114 # "r"
             START_BYTE = 255
             
-            @debug() 
+            # @debug() 
             def send_and_check(instruction_packet,timeout=10) :
-                arduino.write(instruction_packet) 
+                arduino.write(instruction_packet)
+                for element in instruction_packet : 
+                    print(element)
                 start_time = time.time()
                 elapsed_time = 0
 
@@ -130,8 +132,9 @@ def get_connected_arduino_ports(arduino1_flag,arduino2_flag) :
                     elapsed_time = time.time() - start_time
                     if arduino.inWaiting() > 0 :
                         returned_data = arduino.read(arduino.inWaiting())
-                        # print(returned_data)
+                        print(returned_data)
                         if IN_RESET_CHARACTER in returned_data :
+                            print('arduino2 has been reset')
                             send_and_check(chr(START_BYTE) + chr(MOVE_OUT_OF_RESET_COMMAND) + chr(0))   # is timeout - elapsed_time correct
                             print('writing instruction packet again')
                             arduino.write(instruction_packet)
@@ -144,6 +147,8 @@ def get_connected_arduino_ports(arduino1_flag,arduino2_flag) :
                             FLAG += 1 
                         if NOT_OKAY_CHARACTER in returned_data : 
                             arduino.write(instruction_packet)
+                # print('exiting while')
+                # print(FLAG)
                 if FLAG == 2 :
                     return True
                 return False
@@ -162,6 +167,7 @@ def get_connected_arduino_ports(arduino1_flag,arduino2_flag) :
 
         for serial_port in serial_objects_list :
             if serial_port.port not in ignore_serial_ports :
+                # print(serial_port.port)
                 if handshake_function(serial_port) == True :
                     serial_objects_list.pop(serial_objects_list.index(serial_port))
                     return serial_port
@@ -173,6 +179,7 @@ def get_connected_arduino_ports(arduino1_flag,arduino2_flag) :
     else:
         # arduino_1_obj =
         pass # CHANGE
+    print(serial_objects_list)
     if(arduino2_flag):
         arduino_2_obj = handshake('arduino2')
         print('arduino 2 port --> ',arduino_2_obj.port)
