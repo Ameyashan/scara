@@ -165,7 +165,8 @@ def on_key_press(event):
 	print(dynamixel_movement_per_command)
 	print(servo_movement_per_command)
 	# root.bind('<KeyPress>',do_nothing)
-
+	
+entire_block_position_list = [0,0]
 root = tk.Tk()
 root.geometry('600x400')
 text = tk.Text(root, background='black', foreground='white', font=('Comic Sans MS', 12))
