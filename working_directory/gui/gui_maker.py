@@ -300,7 +300,3 @@ def check_range(character,inputted_var):
         else:
             return character
     return True
-# ----------------------------
-# ok_button = button_maker("OK", command = "none")
-# close_button = button_maker("close", fg_color = "red", command = "close")
-# window_maker(ok_button,3,close_button)
